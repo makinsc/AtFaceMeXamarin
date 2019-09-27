@@ -1,0 +1,5 @@
+C:\Proyectos\Xamarin\AtFaceMe\Source\AtFaceMeMobile\ATFaceME.Xamarin.ServiceBus\ATFaceME.Xamarin.ServiceBus.csproj;neutral
+C:\Proyectos\Xamarin\AtFaceMe\Source\AtFaceMeMobile\XamarinConnect\ApiBackend.Transversal.DTOs.PLC\ApiBackend.Transversal.DTOs.PLC.csproj;neutral
+C:\Proyectos\Xamarin\AtFaceMe\Source\AtFaceMeMobile\XamarinConnect\ApiBackend.Transversal.DTOs.PLC\ApiBackend.Transversal.DTOs.PLC.csproj;neutral
+C:\Proyectos\Xamarin\AtFaceMe\Source\AtFaceMeMobile\XamarinConnect\XamarinConnect.UWP\XamarinConnect.UWP.csproj;x86
+C:\Proyectos\Xamarin\AtFaceMe\Source\AtFaceMeMobile\XamarinConnect\XamarinConnect\ATFaceME.Xamarin.Core.csproj;neutral

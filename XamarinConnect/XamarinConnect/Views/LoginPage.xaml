@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<d:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:d="clr-namespace:ATFaceME.Xamarin.Core.Views.Common;assembly=ATFaceME.Xamarin.Core.Views.Common"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATFaceME.Xamarin.Core.Views.LoginPage">
+  
+    <ContentPage.Content>
+        <StackLayout Padding="10,10,10,25" VerticalOptions="Center">
+            <Label Text="Autentíquese para usar ATFaceMe" HorizontalTextAlignment="Center"
+                   VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+            <Button x:Name="LoginButton" Text="Login" Clicked="TryLogin"
+                    VerticalOptions="End" HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+  
+</d:BasePage>

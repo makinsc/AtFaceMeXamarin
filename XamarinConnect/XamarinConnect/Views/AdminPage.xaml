@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<d:BasePage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="clr-namespace:ATFaceME.Xamarin.Core.Views.Common;assembly=ATFaceME.Xamarin.Core.Views.Common"
+             x:Class="ATFaceME.Xamarin.Core.Views.AdminPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Página de administración" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Button Text="Lanzar Entrenamiento" Command="{Binding LaunchTrain}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</d:BasePage>

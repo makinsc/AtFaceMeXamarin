@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<d:BasePage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="clr-namespace:ATFaceME.Xamarin.Core.Views.Common;assembly=ATFaceME.Xamarin.Core.Views.Common"
+             xmlns:converters="clr-namespace:ATFaceME.Xamarin.Core.Converters"
+             xmlns:local="clr-namespace:ATFaceME.Xamarin.Core;assembly=ATFaceME.Xamarin.Core"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" 
+             xmlns:Controls="clr-namespace:ATFaceME.Xamarin.Core.Controls"
+             x:Class="ATFaceME.Xamarin.Core.Views.DetailOfEmployeePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:OfficeLocationToColorConverter x:Key="officeLocationToColor"></converters:OfficeLocationToColorConverter>
+            <converters:IdToSourceImageConverter x:Key="idToSourceImage"></converters:IdToSourceImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <Grid x:Name="contentGrid" Padding="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="{Binding FullName}" FontSize="Large" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+
+                <Label Grid.Row="2" Grid.Column="0" x:Name="defaultPhotoLabel" Text="{Binding DefaultPhoto}" IsVisible="False" />
+
+                <ffimageloading:CachedImage Grid.Row="2" Grid.Column="0" x:Name="photo"
+                        HorizontalOptions="Center" VerticalOptions="Center"
+                        WidthRequest="400" HeightRequest="400"
+                        DownsampleToViewSize="true"
+                        Source="{Binding Id, Converter={StaticResource idToSourceImage}, 
+                                             ConverterParameter={x:Reference defaultPhotoLabel}}" >
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>
+
+                <Grid HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Puesto:" FontSize="Micro" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                           Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="{Binding JobTitle}" VerticalOptions="CenterAndExpand" FontSize="Small"
+                           Grid.Row="0" Grid.Column="1"/>
+
+                    <Label Text="Sede:" FontSize="Micro" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                           Grid.Row="1" Grid.Column="0"/>
+                    <Label TextColor="{Binding OfficeLocation, Converter={StaticResource officeLocationToColor}}" 
+                           Text="{Binding OfficeLocation}" VerticalOptions="CenterAndExpand" FontSize="Small"
+                           Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Text="Correo:" FontSize="Micro" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                           Grid.Row="2" Grid.Column="0"/>
+                    <StackLayout Grid.Row="2" Grid.Column="1">
+                        <Label Text="{Binding Mail}" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"
+                               FontSize="Small" />
+                    </StackLayout>
+
+                    <Label Text="Teléfono:" FontSize="Micro" FontAttributes="Bold" VerticalOptions="CenterAndExpand"
+                           Grid.Row="3" Grid.Column="0"/>
+                    <Controls:HyperlinkLabel TextColor="Black" Text="{Binding Phone}" FontSize="Small" VerticalOptions="CenterAndExpand"
+                                             Grid.Row="3" Grid.Column="1" />
+
+                </Grid>
+            </Grid>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</d:BasePage>
